@@ -28,6 +28,11 @@ class Extension extends AbstractExtension
     private $trackerPath;
 
     /**
+     * @var string
+     */
+    private $scriptPath;
+
+    /**
      * @var bool
      */
     private $disableCookies;
@@ -37,12 +42,13 @@ class Extension extends AbstractExtension
      */
     private $paqs = [];
 
-    public function __construct(bool $disabled, string $siteId, string $piwikHost, string $trackerPath, bool $disableCookies = true)
+    public function __construct(bool $disabled, string $siteId, string $piwikHost, string $trackerPath, string $scriptPath, bool $disableCookies = true)
     {
         $this->disabled = $disabled;
         $this->siteId = $siteId;
         $this->piwikHost = rtrim($piwikHost, '/');
         $this->trackerPath = ltrim($trackerPath, '/');
+        $this->scriptPath = ltrim($scriptPath, '/');
         $this->disableCookies = $disableCookies;
     }
 
@@ -94,7 +100,7 @@ EOT;
         }
         $piwikCode .= <<<EOT
     var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
-    g.defer=true; g.async=true; g.src=u+"{$this->trackerPath}"; s.parentNode.insertBefore(g,s);
+    g.defer=true; g.async=true; g.src=u+"{$this->scriptPath}"; s.parentNode.insertBefore(g,s);
 })();
 //]]></script>
 <noscript><p><img src="//{$this->piwikHost}/piwik.php?idsite={$this->siteId}&amp;rec=1" style="border:0;" alt="" /></p></noscript>

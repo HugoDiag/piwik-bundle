@@ -51,6 +51,8 @@ webfactory_piwik:
     disabled: '%kernel.debug%'
     # Optional, has default. Path to the tracking script on the host.
     tracker_path: "/js/"
+    # Optional, has default. Path to the tracking script on the host.
+    script_path: "/js/"
     # Optional, has default. Disable cookies in favor of GDPR
     # https://matomo.org/faq/new-to-piwik/how-do-i-use-matomo-analytics-without-consent-or-cookie-banner/ & https://matomo.org/faq/general/faq_157/
     disable_cookies: true
