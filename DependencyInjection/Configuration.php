@@ -22,6 +22,7 @@ class Configuration implements ConfigurationInterface
             ->scalarNode('disabled')->defaultValue('%kernel.debug%')->end()
             ->scalarNode('piwik_host')->isRequired()->end()
             ->scalarNode('tracker_path')->defaultValue('/js/')->end()
+            ->scalarNode('script_path')->defaultValue('/js/')->end()
             ->scalarNode('site_id')->isRequired()->end()
             ->scalarNode('disable_cookies')->defaultValue(true)->end()
             ->end();
